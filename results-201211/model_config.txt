@@ -1,0 +1,5 @@
+Model: SARIMAX(2, 0, 1)x(2, 1, 1, 48)
+Order string: 201211
+Regular order (p,d,q): (2, 0, 1)
+Seasonal order (P,D,Q,s): (2, 1, 1, 48)
+Step sizes: [1, 3, 6, 12, 24]
