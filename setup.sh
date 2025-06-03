@@ -14,8 +14,8 @@ rm miniconda.sh
 export PATH="/opt/conda/bin:$PATH"
 
 # Clone repository (replace with your repo)
-git clone <your-repo-url>
-cd <repo-directory>
+git clone git@github.com:phillian-sp/CS221-proj.git
+cd CS221-proj
 
 # Create conda environment from file
 conda env create -f environment.yml
