@@ -5,7 +5,7 @@ from pathlib import Path
 def load_predictions(data_dir: Path, baseline_dir: Path):
     """Load all prediction files and test data."""
     # Load test data
-    test_data = pd.read_csv(data_dir / 'test_data.csv', index_col=0, parse_dates=True).squeeze()
+    test_data = pd.read_csv('results-101111/data/test_data.csv', index_col=0, parse_dates=True).squeeze()
 
     # Load SARIMAX predictions for each step size
     predictions = {}
@@ -42,7 +42,7 @@ def plot_last_day(test_data: pd.Series, predictions: dict, baseline_pred: pd.Ser
     for (n_steps, pred), color in zip(predictions.items(), colors):
         plt.plot(pred[last_day].index.strftime('%H:%M'),
                  pred[last_day].values,
-                 '--', label=f'SARIMAX {n_steps}-step', linewidth=1.5, alpha=0.8, color=color)
+                 '--', label=f'LSTM {n_steps}-step', linewidth=1.5, alpha=0.8, color=color)
 
     # Customize the plot
     plt.title(f'Model Comparison for Day 40',
@@ -69,9 +69,9 @@ def plot_last_day(test_data: pd.Series, predictions: dict, baseline_pred: pd.Ser
 
 def main():
     # Set up directories
-    sarimax_dir = Path('results-101111/data')
+    sarimax_dir = Path('results-lstm-L48-H24/data')
     baseline_dir = Path('results-baseline/data')
-    output_dir = Path('results-comparison/plots')
+    output_dir = Path('results-lstm-L48-H24/plots')
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Load data

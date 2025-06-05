@@ -5,7 +5,7 @@ from pathlib import Path
 def load_predictions(data_dir: Path):
     """Load all prediction files and test data."""
     # Load test data
-    test_data = pd.read_csv(data_dir / 'test_data.csv', index_col=0, parse_dates=True).squeeze()
+    test_data = pd.read_csv('results-101111/data/test_data.csv', index_col=0, parse_dates=True).squeeze()
 
     # Load predictions for each step size
     predictions = {}
@@ -60,8 +60,8 @@ def plot_last_day(test_data: pd.Series, predictions: dict, output_dir: Path):
 
 def main():
     # Set up directories
-    data_dir = Path('results-101111/data')
-    output_dir = Path('results-101111/plots')
+    data_dir = Path('results-lstm-L48-H24/data')
+    output_dir = Path('results-lstm-L48-H24/plots')
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Load data
